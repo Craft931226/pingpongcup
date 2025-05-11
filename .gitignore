@@ -1,0 +1,6 @@
+tabular_data_train/
+tabular_data_test/
+test_data/
+train_data/
+
+AICUP_baseline_del_test.py
