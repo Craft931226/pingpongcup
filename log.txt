@@ -37,3 +37,42 @@
 2025-05-13 16:55:22,901 - INFO - No data leakage detected.
 2025-05-13 16:55:22,901 - INFO - Predict validation data started.
 2025-05-13 16:55:31,855 - INFO - Predict validation data finished successfully.
+2025-05-15 15:33:14,772 - INFO - No data leakage detected.
+2025-05-15 15:33:14,772 - INFO - Script started.
+2025-05-15 15:33:14,785 - ERROR - Script encountered an error: need at least one array to concatenate
+2025-05-15 15:58:32,897 - INFO - No data leakage detected.
+2025-05-15 15:58:32,897 - INFO - Script started.
+2025-05-15 15:58:32,897 - ERROR - Script encountered an error: need at least one array to concatenate
+2025-05-15 16:04:19,531 - INFO - No data leakage detected.
+2025-05-15 16:04:19,531 - INFO - Script started.
+2025-05-15 16:04:19,544 - ERROR - Script encountered an error: need at least one array to concatenate
+2025-05-15 16:05:47,134 - INFO - No data leakage detected.
+2025-05-15 16:05:47,134 - INFO - Script started.
+2025-05-15 16:05:47,134 - ERROR - Script encountered an error: need at least one array to concatenate
+2025-05-15 16:14:14,334 - INFO - No data leakage detected.
+2025-05-15 16:14:14,334 - INFO - Script started.
+2025-05-15 16:17:18,706 - INFO - \u25b6 OOF training for gender
+2025-05-15 16:17:18,706 - INFO -   → 使用 6-fold OOF（level 稀有類別限制）
+2025-05-15 16:19:19,336 - INFO - OOF AUC = 0.5690
+2025-05-15 16:19:39,569 - INFO - [gender] hold-out AUC = nan
+2025-05-15 16:19:39,569 - INFO - \u25b6 OOF training for hold racket handed
+2025-05-15 16:19:39,569 - INFO -   → 使用 5-fold OOF（level 稀有類別限制）
+2025-05-15 16:20:17,591 - INFO - OOF AUC = 0.9918
+2025-05-15 16:20:24,599 - INFO - [hold racket handed] hold-out AUC = nan
+2025-05-15 16:20:24,599 - INFO - \u25b6 OOF training for play years
+2025-05-15 16:20:24,599 - INFO -   → 使用 7-fold OOF（level 稀有類別限制）
+2025-05-15 16:34:24,181 - INFO - OOF AUC = 0.6903
+2025-05-15 16:36:34,871 - INFO - [play years] hold-out AUC = nan
+2025-05-15 16:36:34,871 - INFO - \u25b6 OOF training for level
+2025-05-15 16:36:34,871 - INFO -   → 使用 1-fold OOF（level 稀有類別限制）
+2025-05-15 16:36:34,871 - INFO - OOF AUC = nan
+2025-05-15 16:36:52,583 - INFO - [level] hold-out AUC = nan
+2025-05-15 16:36:52,583 - INFO - Script finished successfully.
+2025-05-15 16:37:50,879 - INFO - No data leakage detected.
+2025-05-15 16:37:50,879 - INFO - Predict validation data started.
+2025-05-15 16:38:17,185 - INFO - Predict validation data finished successfully.
+2025-05-15 16:38:50,614 - INFO - No data leakage detected.
+2025-05-15 16:38:50,614 - INFO - Script started.
+2025-05-15 16:40:58,016 - INFO - No data leakage detected.
+2025-05-15 16:40:58,016 - INFO - Script started.
+2025-05-15 16:43:31,142 - INFO - Script finished successfully.

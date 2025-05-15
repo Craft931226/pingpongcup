@@ -38,13 +38,13 @@ def load_features(feat_dir):
 
 def prepare_train():
     # 1. 產生特徵
-    # generate_features("./train_data", "train_info.csv", "tabular_data_train")
+    generate_features("./train_data", "train_info.csv", "tabular_data_train")
 
     # 2. 讀取 info & 特徵
     info = pd.read_csv("train_info.csv")
     X, uid_idx = load_features("tabular_data_train")
     groups = info.set_index("unique_id").loc[uid_idx, "player_id"].values
-        # === ① 先把 10 % player 做 hold-out =========================
+    # === ① 先把 10 % player 做 hold-out =========================
     gss = GroupShuffleSplit(test_size=0.10, random_state=42)
     tr_idx, ho_idx = next(gss.split(X, groups=groups))
 
