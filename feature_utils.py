@@ -15,7 +15,7 @@ logging.basicConfig(
 EXPECTED_DIM = 131  # Expected dimension of the feature vector
 
 def aggregate_group_prob(proba_mat: np.ndarray, group_size: int = 27,
-                         strategy: str = "mean") -> np.ndarray:
+                         strategy: str = "max") -> np.ndarray:
     if proba_mat.size == 0:
         return np.array([[0]])  # Return default value for empty input
         

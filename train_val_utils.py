@@ -2,6 +2,7 @@ import logging
 import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import StratifiedGroupKFold
 from feature_utils import aggregate_group_prob
 import lightgbm as lgb
 logging.basicConfig(
@@ -9,6 +10,20 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
+# －－ 在檔案開頭 import 區之後加 －－
+from collections import defaultdict
+
+def max_feasible_splits(y, groups):
+    """
+    回傳可用的最大 n_splits，使得『每折 training 都能看到所有類別』。
+    原理：一個類別若僅存在 k 位 player，就不可能做 k+1 折。
+    """
+    cls2players = defaultdict(set)
+    for label, gid in zip(y, groups):
+        cls2players[label].add(gid)
+    min_players = min(len(p) for p in cls2players.values())
+    return max(1, min_players)           # 至少 1 折
+
 def train_validate_split(X, y, groups, test_size=0.2, random_state=42):
     from sklearn.model_selection import GroupKFold
     # Log the length of groups before splitting
@@ -50,6 +65,76 @@ def train_validate_split(X, y, groups, test_size=0.2, random_state=42):
         'y_val': y[val_idx],
         'groups_val': groups[val_idx]
     }
+
+def oof_training(X, y, groups, target_info, build_model_fn, n_splits=3,
+                 early_stopping_rounds=50, random_state=42):
+    """
+    使用 StratifiedGroupKFold 產生 OOF 預測與平均最佳迭代數。
+    回傳：
+        oof_proba   : (n_sample, n_class) or (n_sample,)  預測機率
+        best_iters  : List[int]  各折最佳迭代
+    """
+    if n_splits < 2:
+        return np.zeros((len(y), target_info["num_class"]))*np.nan, [200]
+    # ---- 1. 準備 stratify label ----
+    if target_info["type"] == "bin":
+        strat_y = y
+    else:
+        # 多分類場景：直接用原 y 當 stratify（sklearn 允許不平衡）
+        strat_y = y
+
+    all_classes = np.unique(y)                            # 期望出現的完整類別
+    for seed in range(100):                               # 最多嘗試 100 次
+        sgkf = StratifiedGroupKFold(
+            n_splits=n_splits, shuffle=True, random_state=random_state + seed
+        )
+        splits = list(sgkf.split(X, strat_y, groups))
+        
+        # 檢查每折 training 是否含有所有類別
+        valid_splits = True
+        for tr_idx, _ in splits:
+            if len(np.unique(y[tr_idx])) < len(all_classes):
+                valid_splits = False
+                break
+        
+        # 若每折有效，則跳出循環
+        if valid_splits:
+            break
+    else:
+        # 若經過 100 次還無法分割，報錯
+        raise RuntimeError("無法在 100 次內找到含完整類別的分割")
+
+    # ---- 2. 預留空間 ----
+    n_class = target_info["num_class"] if "num_class" in target_info else len(np.unique(y))
+    oof_proba = np.zeros((len(y), n_class), dtype=float)
+    best_iters = []
+
+    # ---- 3. 逐折訓練 ----
+    for fold, (tr_idx, va_idx) in enumerate(splits):
+        mdl = build_model_fn(y, target_info)
+        mdl.fit(
+            X[tr_idx], y[tr_idx],
+            eval_set=[(X[va_idx], y[va_idx])],
+            eval_metric='auc' if target_info["type"] == "bin" else 'multi_logloss',
+            callbacks=[lgb.early_stopping(early_stopping_rounds, verbose=False)]
+        )
+        best_it = mdl.best_iteration_ or mdl.n_estimators_
+        best_iters.append(best_it)
+
+        proba = mdl.predict_proba(X[va_idx])
+        if target_info["type"] != "bin" and proba.shape[1] < n_class:
+            full_prob = np.zeros((proba.shape[0], n_class), dtype=float)
+            present   = mdl.classes_
+            for col_idx, cls in enumerate(present):
+                full_prob[:, cls] = proba[:, col_idx]
+            proba = full_prob
+
+        # ↓ 二元時把 proba[:,1] 填到第二欄；第一欄照樣保留
+        if target_info["type"] == "bin" and proba.ndim == 1:
+            proba = np.vstack([1 - proba, proba]).T
+        oof_proba[va_idx] = proba
+
+    return oof_proba, best_iters
 
 def check_data_leakage(train_ids, val_ids):
     """Check for data leakage between training and validation datasets."""
@@ -158,11 +243,13 @@ def evaluate_validation_set(data_dict, models_dict, target_info):
             
         scores[target_name] = score
         print(f"{target_name} ROC AUC: {score:.4f}")
+        logging.info(f"{target_name} ROC AUC: {score:.4f}")
     
     # avg_score = np.mean(list(scores.values()))
     valid_scores = [s for s in scores.values() if not np.isnan(s)]
     avg_score = np.nan if len(valid_scores)==0 else float(np.nanmean(valid_scores))
     print(f"\nAverage ROC AUC: {avg_score:.4f}")
+    logging.info(f"Average ROC AUC: {avg_score:.4f}")
     return scores, avg_score
 
 def check_unique_id_overlap(train_file, val_file):
