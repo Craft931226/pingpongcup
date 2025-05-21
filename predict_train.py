@@ -108,7 +108,7 @@ def predict_train():
 
             X_scaled = scaler.transform(X_current)
             proba = model.predict_proba(X_scaled)
-            grp = aggregate_group_prob(proba, strategy="max")[0]
+            grp = aggregate_group_prob(proba, strategy="auto")[0]
 
             if meta["type"] == "bin":
                 pos_idx = np.where(model.classes_ == 1)[0][0]

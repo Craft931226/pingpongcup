@@ -20,58 +20,47 @@ def build_scaler(X: np.ndarray):
 def build_model(y, target_info):
     if target_info["type"] == "bin":
         params = dict(
-            objective   = "binary" if target_info["type"]=="bin" else "multiclass",
-            metric      = "auc"    if target_info["type"]=="bin" else "multi_logloss",
-            num_class   = target_info.get("num_class", None),
-            learning_rate = 0.01,             # ↓ 降低學習率
-            num_leaves    = 31,               # ↓ 減少複雜度
-            n_estimators  = 1500,             # ↑ 配合較小 LR
-            max_depth     = -1,
+            objective      = "binary",
+            metric         = "auc",
+            learning_rate  = 0.05,
+            num_leaves     = 63,
+            n_estimators   = 700,
+            max_depth      = -1,
             min_child_samples = 20,
-            bagging_freq      = 5,
             colsample_bytree  = 0.8,
-            reg_alpha         = 0.5,
-            reg_lambda        = 0.5,
-            bagging_fraction  = 0.9,
-            feature_fraction  = 0.9,
-            random_state      = 42,
-            n_jobs            = -1,
-            class_weight      = "balanced",
-            boosting_type     = "dart",
-            drop_rate         = 0.1,
-            # learning_rate_drop  = 0.02,
-            # num_iterations_drop = 2500,
-            device_type       = 'gpu',   # ← 必加：改用 GPU
-            gpu_platform_id   = 0,       # ← 視顯卡調整，預設 0
-            gpu_device_id     = 0,       # ← 同上
-
+            bagging_fraction = 0.9,
+            feature_fraction = 0.9,
+            reg_alpha      = 0.5,
+            reg_lambda     = 0.5,
+            random_state   = 42,
+            n_jobs         = -1,
+            boosting_type  = "gbdt",
+            device_type    = "gpu",
+            gpu_platform_id= 0,
+            gpu_device_id  = 0,
         )
 
     else:
         params = dict(
-            objective   = "binary" if target_info["type"]=="bin" else "multiclass",
-            metric      = "auc"    if target_info["type"]=="bin" else "multi_logloss",
-            num_class   = target_info.get("num_class", None),
-            learning_rate = 0.01,             # ↓ 降低學習率
-            num_leaves    = 31,               # ↓ 減少複雜度
-            n_estimators  = 2500,             # ↑ 配合較小 LR
-            max_depth     = -1,
+            objective      = "multiclass",
+            metric         = "multi_logloss",
+            num_class      = target_info["num_class"],   # ★ 必填且 >1
+            learning_rate  = 0.03,
+            num_leaves     = 63,
+            n_estimators   = 700,
+            max_depth      = -1,
             min_child_samples = 20,
             colsample_bytree  = 0.8,
-            bagging_freq      = 5,
-            reg_alpha         = 0.5,
-            reg_lambda        = 0.5,
-            bagging_fraction  = 0.9,
-            feature_fraction  = 0.9,
-            random_state      = 42,
-            n_jobs            = -1,
-            class_weight      = "balanced",
-            boosting_type     = "dart",
-            drop_rate         = 0.1,
-            device_type       = 'gpu',   # ← 必加：改用 GPU
-            gpu_platform_id   = 0,       # ← 視顯卡調整，預設 0
-            gpu_device_id     = 0,       # ← 同上
-
+            bagging_fraction = 0.9,
+            feature_fraction = 0.9,
+            reg_alpha      = 0.5,
+            reg_lambda     = 0.5,
+            random_state   = 42,
+            n_jobs         = -1,
+            boosting_type  = "gbdt",
+            device_type    = "gpu",
+            gpu_platform_id= 0,
+            gpu_device_id  = 0,
         )
     return lgb.LGBMClassifier(**params)
 

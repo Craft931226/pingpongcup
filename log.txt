@@ -1,78 +1,90 @@
-2025-05-13 12:28:07,922 - INFO - No data leakage detected.
-2025-05-13 12:28:07,922 - INFO - Script started.
-2025-05-13 12:28:10,005 - INFO - â–¶ OOF training for gender
-2025-05-13 12:28:10,005 - INFO -   â†’ ä½¿ç”¨ 6-fold OOFï¼ˆlevel ç¨€æœ‰é¡åˆ¥é™åˆ¶ï¼‰
-2025-05-13 12:28:41,627 - INFO - OOF AUC = 0.5660
-2025-05-13 12:28:47,232 - INFO - [gender] hold-out AUC = nan
-2025-05-13 12:28:47,232 - INFO - â–¶ OOF training for hold racket handed
-2025-05-13 12:28:47,233 - INFO -   â†’ ä½¿ç”¨ 5-fold OOFï¼ˆlevel ç¨€æœ‰é¡åˆ¥é™åˆ¶ï¼‰
-2025-05-13 12:29:03,778 - INFO - OOF AUC = 0.9914
-2025-05-13 12:29:06,257 - INFO - [hold racket handed] hold-out AUC = nan
-2025-05-13 12:29:06,257 - INFO - â–¶ OOF training for play years
-2025-05-13 12:29:06,257 - INFO -   â†’ ä½¿ç”¨ 7-fold OOFï¼ˆlevel ç¨€æœ‰é¡åˆ¥é™åˆ¶ï¼‰
-2025-05-13 12:34:00,895 - INFO - OOF AUC = 0.6897
-2025-05-13 12:34:36,298 - INFO - [play years] hold-out AUC = nan
-2025-05-13 12:34:36,298 - INFO - â–¶ OOF training for level
-2025-05-13 12:34:36,298 - INFO -   â†’ ä½¿ç”¨ 1-fold OOFï¼ˆlevel ç¨€æœ‰é¡åˆ¥é™åˆ¶ï¼‰
-2025-05-13 12:34:36,300 - ERROR - Script encountered an error: Input contains NaN.
-2025-05-13 12:43:40,507 - INFO - No data leakage detected.
-2025-05-13 12:43:40,507 - INFO - Script started.
-2025-05-13 12:43:42,532 - INFO - â–¶ OOF training for gender
-2025-05-13 12:43:42,533 - INFO -   â†’ ä½¿ç”¨ 6-fold OOFï¼ˆlevel ç¨€æœ‰é¡åˆ¥é™åˆ¶ï¼‰
-2025-05-13 12:44:14,119 - INFO - OOF AUC = 0.5651
-2025-05-13 12:44:19,617 - INFO - [gender] hold-out AUC = nan
-2025-05-13 12:44:19,617 - INFO - â–¶ OOF training for hold racket handed
-2025-05-13 12:44:19,617 - INFO -   â†’ ä½¿ç”¨ 5-fold OOFï¼ˆlevel ç¨€æœ‰é¡åˆ¥é™åˆ¶ï¼‰
-2025-05-13 12:44:35,934 - INFO - OOF AUC = 0.9914
-2025-05-13 12:44:38,543 - INFO - [hold racket handed] hold-out AUC = nan
-2025-05-13 12:44:38,543 - INFO - â–¶ OOF training for play years
-2025-05-13 12:44:38,544 - INFO -   â†’ ä½¿ç”¨ 7-fold OOFï¼ˆlevel ç¨€æœ‰é¡åˆ¥é™åˆ¶ï¼‰
-2025-05-13 12:48:38,721 - INFO - OOF AUC = 0.6893
-2025-05-13 12:49:14,171 - INFO - [play years] hold-out AUC = nan
-2025-05-13 12:49:14,171 - INFO - â–¶ OOF training for level
-2025-05-13 12:49:14,171 - INFO -   â†’ ä½¿ç”¨ 1-fold OOFï¼ˆlevel ç¨€æœ‰é¡åˆ¥é™åˆ¶ï¼‰
-2025-05-13 12:49:14,171 - INFO - OOF AUC = nan
-2025-05-13 12:49:18,638 - INFO - [level] hold-out AUC = nan
-2025-05-13 12:49:18,639 - INFO - Script finished successfully.
-2025-05-13 16:55:22,901 - INFO - No data leakage detected.
-2025-05-13 16:55:22,901 - INFO - Predict validation data started.
-2025-05-13 16:55:31,855 - INFO - Predict validation data finished successfully.
-2025-05-15 15:33:14,772 - INFO - No data leakage detected.
-2025-05-15 15:33:14,772 - INFO - Script started.
-2025-05-15 15:33:14,785 - ERROR - Script encountered an error: need at least one array to concatenate
-2025-05-15 15:58:32,897 - INFO - No data leakage detected.
-2025-05-15 15:58:32,897 - INFO - Script started.
-2025-05-15 15:58:32,897 - ERROR - Script encountered an error: need at least one array to concatenate
-2025-05-15 16:04:19,531 - INFO - No data leakage detected.
-2025-05-15 16:04:19,531 - INFO - Script started.
-2025-05-15 16:04:19,544 - ERROR - Script encountered an error: need at least one array to concatenate
-2025-05-15 16:05:47,134 - INFO - No data leakage detected.
-2025-05-15 16:05:47,134 - INFO - Script started.
-2025-05-15 16:05:47,134 - ERROR - Script encountered an error: need at least one array to concatenate
-2025-05-15 16:14:14,334 - INFO - No data leakage detected.
-2025-05-15 16:14:14,334 - INFO - Script started.
-2025-05-15 16:17:18,706 - INFO - \u25b6 OOF training for gender
-2025-05-15 16:17:18,706 - INFO -   ¡÷ ¨Ï¥Î 6-fold OOF¡]level µ}¦³Ãş§O­­¨î¡^
-2025-05-15 16:19:19,336 - INFO - OOF AUC = 0.5690
-2025-05-15 16:19:39,569 - INFO - [gender] hold-out AUC = nan
-2025-05-15 16:19:39,569 - INFO - \u25b6 OOF training for hold racket handed
-2025-05-15 16:19:39,569 - INFO -   ¡÷ ¨Ï¥Î 5-fold OOF¡]level µ}¦³Ãş§O­­¨î¡^
-2025-05-15 16:20:17,591 - INFO - OOF AUC = 0.9918
-2025-05-15 16:20:24,599 - INFO - [hold racket handed] hold-out AUC = nan
-2025-05-15 16:20:24,599 - INFO - \u25b6 OOF training for play years
-2025-05-15 16:20:24,599 - INFO -   ¡÷ ¨Ï¥Î 7-fold OOF¡]level µ}¦³Ãş§O­­¨î¡^
-2025-05-15 16:34:24,181 - INFO - OOF AUC = 0.6903
-2025-05-15 16:36:34,871 - INFO - [play years] hold-out AUC = nan
-2025-05-15 16:36:34,871 - INFO - \u25b6 OOF training for level
-2025-05-15 16:36:34,871 - INFO -   ¡÷ ¨Ï¥Î 1-fold OOF¡]level µ}¦³Ãş§O­­¨î¡^
-2025-05-15 16:36:34,871 - INFO - OOF AUC = nan
-2025-05-15 16:36:52,583 - INFO - [level] hold-out AUC = nan
-2025-05-15 16:36:52,583 - INFO - Script finished successfully.
-2025-05-15 16:37:50,879 - INFO - No data leakage detected.
-2025-05-15 16:37:50,879 - INFO - Predict validation data started.
-2025-05-15 16:38:17,185 - INFO - Predict validation data finished successfully.
-2025-05-15 16:38:50,614 - INFO - No data leakage detected.
-2025-05-15 16:38:50,614 - INFO - Script started.
-2025-05-15 16:40:58,016 - INFO - No data leakage detected.
-2025-05-15 16:40:58,016 - INFO - Script started.
-2025-05-15 16:43:31,142 - INFO - Script finished successfully.
+2025-05-18 03:09:11,282 - INFO - No data leakage detected.
+2025-05-18 03:09:11,282 - INFO - Script started.
+2025-05-18 03:09:20,511 - INFO - \u25b6 OOF training for gender
+2025-05-18 03:09:20,512 - INFO -   ¡÷ ¨Ï¥Î 6-fold OOF¡]level µ}¦³Ãş§O­­¨î¡^
+2025-05-18 03:09:24,027 - INFO - OOF AUC = 0.4798
+2025-05-18 03:09:24,197 - INFO - [gender] hold-out AUC = nan
+2025-05-18 03:09:24,199 - INFO - \u25b6 OOF training for hold racket handed
+2025-05-18 03:09:24,200 - INFO -   ¡÷ ¨Ï¥Î 5-fold OOF¡]level µ}¦³Ãş§O­­¨î¡^
+2025-05-18 03:09:24,915 - INFO - OOF AUC = 0.8168
+2025-05-18 03:09:24,972 - INFO - [hold racket handed] hold-out AUC = nan
+2025-05-18 03:09:24,972 - INFO - \u25b6 OOF training for play years
+2025-05-18 03:09:24,973 - INFO -   ¡÷ ¨Ï¥Î 7-fold OOF¡]level µ}¦³Ãş§O­­¨î¡^
+2025-05-18 03:09:40,940 - INFO - OOF AUC = 0.7032
+2025-05-18 03:09:41,030 - INFO - [play years] hold-out AUC = nan
+2025-05-18 03:09:41,030 - INFO - \u25b6 OOF training for level
+2025-05-18 03:09:41,031 - INFO -   ¡÷ ¨Ï¥Î 1-fold OOF¡]level µ}¦³Ãş§O­­¨î¡^
+2025-05-18 03:09:41,032 - INFO - OOF AUC = nan
+2025-05-18 03:09:51,002 - INFO - [level] hold-out AUC = nan
+2025-05-18 03:09:51,003 - INFO - Script finished successfully.
+2025-05-18 03:10:51,072 - INFO - No data leakage detected.
+2025-05-18 03:10:51,072 - INFO - Predict validation data started.
+2025-05-18 03:10:55,458 - INFO - Predict validation data finished successfully.
+2025-05-18 23:26:13,254 - INFO - No data leakage detected.
+2025-05-18 23:26:19,199 - INFO - Script started.
+2025-05-18 23:27:11,431 - INFO - Script started.
+2025-05-18 23:28:32,991 - INFO - Script started.
+2025-05-18 23:32:17,700 - INFO - 
+Training for gender:
+2025-05-18 23:32:24,276 - INFO - Best params for gender: {'learning_rate': 0.0104434697488203, 'num_leaves': 98, 'min_child_samples': 84, 'subsample': 0.679836841901124, 'colsample_bytree': 0.5255130737933416, 'reg_alpha': 0.0023514343989899083, 'reg_lambda': 0.003656453857619176}
+2025-05-18 23:32:30,999 - INFO - Training Score for gender: 0.9902
+2025-05-18 23:32:31,078 - INFO - 
+Training for hold racket handed:
+2025-05-18 23:32:32,460 - INFO - Best params for hold racket handed: {'learning_rate': 0.09551355918466398, 'num_leaves': 90, 'min_child_samples': 89, 'subsample': 0.9958686522945244, 'colsample_bytree': 0.9890971968973545, 'reg_alpha': 0.2345067099356707, 'reg_lambda': 0.007429485131906162}
+2025-05-18 23:32:36,731 - INFO - Training Score for hold racket handed: 0.9990
+2025-05-18 23:32:36,778 - INFO - 
+Training for play years:
+2025-05-18 23:34:01,691 - INFO - Best params for play years: {'learning_rate': 0.03155386056018405, 'num_leaves': 102, 'min_child_samples': 60, 'subsample': 0.9088180771709871, 'colsample_bytree': 0.5679655791117837, 'reg_alpha': 0.37247361011139746, 'reg_lambda': 0.013769936603513446}
+2025-05-18 23:34:22,155 - INFO - Training Score for play years: 0.6526
+2025-05-18 23:34:22,360 - INFO - 
+Training for level:
+2025-05-18 23:34:22,535 - INFO - Best params for level: {'learning_rate': 0.041345507439419, 'num_leaves': 74, 'min_child_samples': 94, 'subsample': 0.8636697651644389, 'colsample_bytree': 0.6164188664493507, 'reg_alpha': 0.002237184626610315, 'reg_lambda': 0.21628727742802203}
+2025-05-18 23:34:44,585 - INFO - Training Score for level: 0.7781
+2025-05-18 23:34:44,870 - INFO - gender ROC AUC: 0.5005
+2025-05-18 23:34:44,870 - INFO - hold racket handed ROC AUC: 0.3079
+2025-05-18 23:34:44,886 - INFO - play years ROC AUC: 0.6173
+2025-05-18 23:34:44,902 - INFO - level ROC AUC: 0.4543
+2025-05-18 23:34:44,902 - INFO - Average ROC AUC: 0.4700
+2025-05-18 23:35:12,563 - INFO - No data leakage detected.
+2025-05-18 23:35:12,563 - INFO - Predict validation data started.
+2025-05-18 23:35:23,758 - INFO - Number of unique groups: 42
+2025-05-18 23:35:23,758 - INFO - Group counts: {np.int64(1): np.int64(65), np.int64(2): np.int64(48), np.int64(3): np.int64(36), np.int64(4): np.int64(61), np.int64(5): np.int64(52), np.int64(6): np.int64(61), np.int64(7): np.int64(74), np.int64(8): np.int64(60), np.int64(9): np.int64(48), np.int64(10): np.int64(53), np.int64(11): np.int64(43), np.int64(12): np.int64(54), np.int64(13): np.int64(56), np.int64(14): np.int64(53), np.int64(15): np.int64(33), np.int64(16): np.int64(35), np.int64(17): np.int64(27), np.int64(18): np.int64(42), np.int64(19): np.int64(20), np.int64(20): np.int64(27), np.int64(21): np.int64(50), np.int64(22): np.int64(41), np.int64(23): np.int64(42), np.int64(24): np.int64(122), np.int64(25): np.int64(27), np.int64(26): np.int64(29), np.int64(27): np.int64(24), np.int64(28): np.int64(20), np.int64(29): np.int64(28), np.int64(30): np.int64(39), np.int64(31): np.int64(34), np.int64(32): np.int64(45), np.int64(33): np.int64(41), np.int64(34): np.int64(35), np.int64(35): np.int64(46), np.int64(36): np.int64(39), np.int64(37): np.int64(47), np.int64(38): np.int64(34), np.int64(39): np.int64(71), np.int64(40): np.int64(89), np.int64(41): np.int64(58), np.int64(42): np.int64(46)}
+2025-05-19 00:32:47,575 - INFO - No data leakage detected.
+2025-05-19 00:32:59,011 - INFO - Script started.
+2025-05-19 00:33:10,564 - INFO - 
+Training for gender:
+2025-05-19 00:33:21,144 - INFO - Best params for gender: {'learning_rate': 0.00035272091484465505, 'num_leaves': 108, 'min_child_samples': 30, 'subsample': 0.5598690979811588, 'colsample_bytree': 0.7828493645894825, 'reg_alpha': 0.0026682798212335577, 'reg_lambda': 0.38462456500901115}
+2025-05-19 00:33:38,583 - INFO - Training Score for gender: 0.9771
+2025-05-19 00:33:38,647 - INFO - 
+Training for hold racket handed:
+2025-05-19 00:33:39,918 - INFO - Best params for hold racket handed: {'learning_rate': 0.0013246977823969926, 'num_leaves': 45, 'min_child_samples': 77, 'subsample': 0.9149933525231619, 'colsample_bytree': 0.875336929899276, 'reg_alpha': 0.00672247792347531, 'reg_lambda': 0.0010412942132661824}
+2025-05-19 00:33:46,333 - INFO - Training Score for hold racket handed: 0.9990
+2025-05-19 00:33:46,381 - INFO - 
+Training for play years:
+2025-05-19 00:35:20,856 - INFO - Best params for play years: {'learning_rate': 0.06934440369257681, 'num_leaves': 69, 'min_child_samples': 44, 'subsample': 0.9082649165345792, 'colsample_bytree': 0.5690422897599909, 'reg_alpha': 0.003904570618141352, 'reg_lambda': 0.11823796539705951}
+2025-05-19 00:36:23,919 - INFO - Training Score for play years: 0.6424
+2025-05-19 00:36:24,124 - INFO - 
+Training for level:
+2025-05-19 00:36:24,345 - INFO - Best params for level: {'learning_rate': 0.02687341682545589, 'num_leaves': 103, 'min_child_samples': 52, 'subsample': 0.5496493260064268, 'colsample_bytree': 0.7429899441833052, 'reg_alpha': 0.714583492743759, 'reg_lambda': 0.015348712194228328}
+2025-05-19 00:37:18,791 - INFO - Training Score for level: 0.7869
+2025-05-19 00:37:19,062 - INFO - gender ROC AUC: 0.4133
+2025-05-19 00:37:19,062 - INFO - hold racket handed ROC AUC: 0.5273
+2025-05-19 00:37:19,077 - INFO - play years ROC AUC: 0.6061
+2025-05-19 00:37:19,109 - INFO - level ROC AUC: 0.5719
+2025-05-19 00:37:19,109 - INFO - Average ROC AUC: 0.5297
+2025-05-19 00:38:36,281 - INFO - Predict validation data started.
+2025-05-19 00:38:47,737 - INFO - Number of unique groups: 42
+2025-05-19 00:38:47,737 - INFO - Group counts: {np.int64(1): np.int64(65), np.int64(2): np.int64(48), np.int64(3): np.int64(36), np.int64(4): np.int64(61), np.int64(5): np.int64(52), np.int64(6): np.int64(61), np.int64(7): np.int64(74), np.int64(8): np.int64(60), np.int64(9): np.int64(48), np.int64(10): np.int64(53), np.int64(11): np.int64(43), np.int64(12): np.int64(54), np.int64(13): np.int64(56), np.int64(14): np.int64(53), np.int64(15): np.int64(33), np.int64(16): np.int64(35), np.int64(17): np.int64(27), np.int64(18): np.int64(42), np.int64(19): np.int64(20), np.int64(20): np.int64(27), np.int64(21): np.int64(50), np.int64(22): np.int64(41), np.int64(23): np.int64(42), np.int64(24): np.int64(122), np.int64(25): np.int64(27), np.int64(26): np.int64(29), np.int64(27): np.int64(24), np.int64(28): np.int64(20), np.int64(29): np.int64(28), np.int64(30): np.int64(39), np.int64(31): np.int64(34), np.int64(32): np.int64(45), np.int64(33): np.int64(41), np.int64(34): np.int64(35), np.int64(35): np.int64(46), np.int64(36): np.int64(39), np.int64(37): np.int64(47), np.int64(38): np.int64(34), np.int64(39): np.int64(71), np.int64(40): np.int64(89), np.int64(41): np.int64(58), np.int64(42): np.int64(46)}
+2025-05-20 10:32:50,513 - INFO - No data leakage detected.
+2025-05-20 10:33:06,918 - INFO - Script started.
+2025-05-20 10:36:59,437 - INFO - Script started.
+2025-05-20 10:41:30,446 - INFO - No data leakage detected.
+2025-05-20 10:42:01,749 - INFO - Script started.
+2025-05-20 10:42:07,735 - INFO - 
+Training for gender:
+2025-05-20 10:46:34,983 - INFO - Script started.
+2025-05-20 10:46:40,842 - INFO - 
+Training for gender:
+2025-05-20 10:47:01,616 - INFO - Script started.
+2025-05-20 10:47:07,531 - INFO - 
+Training for gender:

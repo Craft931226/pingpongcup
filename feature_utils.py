@@ -15,27 +15,18 @@ logging.basicConfig(
 EXPECTED_DIM = 131  # Expected dimension of the feature vector
 
 def aggregate_group_prob(proba_mat: np.ndarray, group_size: int = 27,
-                         strategy: str = "max") -> np.ndarray:
+                         strategy: str = "auto") -> np.ndarray:
+    """binary → max multi → mean (若呼叫端明確指定則覆寫)"""
+    if strategy == "auto":
+        strategy = "mean" if proba_mat.shape[1] > 2 else "max"
+
     if proba_mat.size == 0:
-        return np.array([[0]])  # Return default value for empty input
-        
+        return np.array([[0]])
     if len(proba_mat) < group_size:
-        # If we have less samples than group_size, just average what we have
         return np.array([np.mean(proba_mat, axis=0)])
-    
     num_groups = len(proba_mat) // group_size
-    if num_groups == 0:
-        # Handle case where we have some samples but less than group_size
-        return np.array([np.mean(proba_mat, axis=0)])
-        
-    # Handle normal case
-    proba_mat = proba_mat[:num_groups * group_size]  # Only keep complete groups
-    proba_mat = proba_mat.reshape(num_groups, group_size, -1)
-    
-    if strategy == "mean":
-        return proba_mat.mean(axis=1)  # (N_uid, n_class)
-    else:
-        return proba_mat.max(axis=1)
+    proba_mat  = proba_mat[:num_groups * group_size].reshape(num_groups, group_size, -1)
+    return proba_mat.mean(axis=1) if strategy == "mean" else proba_mat.max(axis=1)
     
 def FFT_data(input_data, swinging_times):   
     txtlength = swinging_times[-1] - swinging_times[0]

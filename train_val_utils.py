@@ -116,7 +116,7 @@ def oof_training(X, y, groups, target_info, build_model_fn, n_splits=3,
             X[tr_idx], y[tr_idx],
             eval_set=[(X[va_idx], y[va_idx])],
             eval_metric='auc' if target_info["type"] == "bin" else 'multi_logloss',
-            callbacks=[lgb.early_stopping(early_stopping_rounds, verbose=False)]
+            callbacks=[lgb.early_stopping(30, verbose=False)]
         )
         best_it = mdl.best_iteration_ or mdl.n_estimators_
         best_iters.append(best_it)

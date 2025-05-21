@@ -1,0 +1,6 @@
+// 在 User 或 Workspace 設定檔加入
+{
+    "notebook.output.textLineLimit": 100000,      // 行數無上限
+    "notebook.output.scrolling": true        // 讓長輸出直接以可捲動區塊呈現
+}
+  

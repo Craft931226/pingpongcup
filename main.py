@@ -38,7 +38,7 @@ def load_features(feat_dir):
 
 def prepare_train():
     # 1. 產生特徵
-    generate_features("./train_data", "train_info.csv", "tabular_data_train")
+    # generate_features("./train_data", "train_info.csv", "tabular_data_train")
 
     # 2. 讀取 info & 特徵
     info = pd.read_csv("train_info.csv")
@@ -85,7 +85,7 @@ def prepare_train():
             oof, best_iters = oof_training(
                 X_tr_scaled, y_tr, groups_tr,
                 meta, build_model,
-                n_splits=n_fold, early_stopping_rounds=30
+                n_splits=n_fold
             )
 
         best_iter = max(1, int(np.mean(best_iters)))
@@ -105,10 +105,16 @@ def prepare_train():
         print(f"OOF AUC = {auc:.4f}")
         logging.info(f"OOF AUC = {auc:.4f}")
 
+        sample_weight = None
+        if meta["type"] == "multi":
+            _, counts = np.unique(y_tr, return_counts=True)
+            inv = 1 / counts
+            w_of = {cls: inv[i] for i, cls in enumerate(np.unique(y_tr))}
+            sample_weight = np.vectorize(w_of.get)(y_tr)
         # 用平均迭代數重訓全資料並保存
         final_mdl = build_model(y_tr, meta)
         final_mdl.set_params(n_estimators=best_iter)
-        final_mdl.fit(X_tr_scaled, y_tr)
+        final_mdl.fit(X_tr_scaled, y_tr, sample_weight=sample_weight)
         save_model(final_mdl, scaler, col)
         if col == "level":
             # 以 gender 分兩批再各自重訓
@@ -205,7 +211,7 @@ def predict_test():
 
                 X_scaled = scaler.transform(X)
                 proba = model.predict_proba(X_scaled)
-                grp = aggregate_group_prob(proba, strategy="max")[0]
+                grp = aggregate_group_prob(proba, strategy="auto")[0]
 
                 pos_idx = np.where(model.classes_ == 1)[0][0]
                 row[col] = grp[pos_idx]           # 機率
@@ -218,7 +224,7 @@ def predict_test():
                 model  = bundle["model"]
                 X_scaled = scaler.transform(X)
                 proba = model.predict_proba(X_scaled)
-                grp = aggregate_group_prob(proba, strategy="max")[0]
+                grp = aggregate_group_prob(proba, strategy="auto")[0]
                 needed_labels = [2, 3, 4, 5]
                 for lbl in needed_labels:
                     row[f"level_{lbl}"] = 0.0
@@ -232,7 +238,7 @@ def predict_test():
 
             X_scaled = scaler.transform(X)
             proba = model.predict_proba(X_scaled)
-            grp = aggregate_group_prob(proba, strategy="max")[0]
+            grp = aggregate_group_prob(proba, strategy="auto")[0]
 
             if meta["type"] == "bin":
                 pos_idx = np.where(model.classes_ == 1)[0][0]
